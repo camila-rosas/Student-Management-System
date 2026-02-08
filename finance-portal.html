@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <style> 
+      body { margin: 0; 
+            height: 100vh; 
+            font-family: Arial, sans-serif;
+            background-image: url("https://utamavs.com/images/2021/5/20/UT_Arlington_Campus_Tower_Entrance_Sign.jpg");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+      /* Blue filter on background */
+        body::before {
+          content: "";
+          position: fixed;
+          inset: 0;
+          background: rgba(10, 31, 68, 0.75); /* dark blue i think */
+          z-index: 0;
+        }
+      .corner-image {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 150px;
+        height: 150px;
+        border-radius: 4px;
+        z-index: 2;
+      }
+      /* Centers login box */
+      .login-box {
+        position: relative;
+        z-index: 1;
+        background: white;
+        width: 420px;
+        padding: 45px;
+        border-radius: 10px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .login-box h2 {
+        text-align: center;
+        font-family: "Times New Roman", Times, serif;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 40px;
+    }
+
+
+    .login-box label {
+        font-weight: bold;
+        display: block;
+        margin-top: 18px;
+        font-size: 20px;
+    }
+
+
+    .login-box input {
+        width: 100%;
+        padding: 12px;
+        margin-top: 6px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 15px;
+    }
+
+
+    .login-box button {
+        width: 100%;
+        margin-top: 25px;
+        padding: 14px;
+        background-color: #0a1f44;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 17px;
+        cursor: pointer;
+    }
+
+
+    .login-box button:hover {
+        background-color: #06142d;
+    }
+
+
+      /* For password reset section */
+      .reset {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+
+    .reset a {
+       color: #0a1f44;
+       text-decoration: none;
+    }
+
+
+    .reset a:hover {
+       text-decoration: underline;
+    }
+    </style>
+  </head>
+  <body>
+    
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png"
+      alt="UTA logo"
+      class="corner-image"
+    >
+
+
+    <div class="login-box">
+      <h2>UTA Finance Portal</h2>
+      <form>
+          <label for="username">Email</label>
+          <input type="text" id="username" placeholder="Enter UTA Email">
+
+
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password">
+
+
+          <button type="submit">Login</button>
+      </form>
+
+
+      <div class="reset">
+          <p>Forgot your password? <a href="#">Reset</a></p>
+      </div>
+    </div>
+  </body>
+</html>
