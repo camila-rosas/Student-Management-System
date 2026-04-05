@@ -1,32 +1,38 @@
-<!-- Created By: David Vargas -->
+<!-- Created By: David Vargas
+	
+Note: MOSTLY INCOMEPLETE
+
+	index123.html -->
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>Student Management System</title>
-    <style> 
-      body { margin: 0; 
-            height: 100vh; 
-            font-family: Arial, sans-serif;
-            background-image: url("https://utamavs.com/images/2021/5/20/UT_Arlington_Campus_Tower_Entrance_Sign.jpg");
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: Arial, sans-serif;
+        background-image: url("https://utamavs.com/images/2021/5/20/UT_Arlington_Campus_Tower_Entrance_Sign.jpg");
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-      /* Blue filter on background */
-        body::before {
-          content: "";
-          position: fixed;
-          inset: 0;
-          background: rgba(10, 31, 68, 0.75); /* dark blue i think */
-          z-index: 0;
-        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(10, 31, 68, 0.75);
+        z-index: 0;
+      }
+
       .corner-image {
         position: fixed;
         bottom: 20px;
@@ -36,7 +42,7 @@
         border-radius: 4px;
         z-index: 2;
       }
-      /* Centers login box */
+
       .login-box {
         position: relative;
         z-index: 1;
@@ -49,33 +55,33 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-    }
+      }
 
-    .login-box h2 {
+      .login-box h2 {
         text-align: center;
         font-family: "Times New Roman", Times, serif;
         margin-top: 0;
         margin-bottom: 10px;
         font-size: 40px;
-    }
+      }
 
-    .login-box label {
+      .login-box label {
         font-weight: bold;
         display: block;
         margin-top: 18px;
         font-size: 20px;
-    }
+      }
 
-    .login-box input {
+      .login-box input {
         width: 100%;
         padding: 12px;
         margin-top: 6px;
         border: 1px solid #ccc;
         border-radius: 5px;
         font-size: 15px;
-    }
+      }
 
-    .login-box button {
+      .login-box button {
         width: 100%;
         margin-top: 25px;
         padding: 14px;
@@ -85,31 +91,38 @@
         border-radius: 5px;
         font-size: 17px;
         cursor: pointer;
-    }
+      }
 
-    .login-box button:hover {
+      .login-box button:hover {
         background-color: #06142d;
-    }
+      }
 
-      /* For password reset section */
       .reset {
         text-align: center;
         margin-top: 20px;
         font-size: 14px;
       }
 
-    .reset a {
-       color: #0a1f44;
-       text-decoration: none;
-    }
+      .reset a {
+        color: #0a1f44;
+        text-decoration: none;
+      }
 
-    .reset a:hover {
-       text-decoration: underline;
-    }
+      .reset a:hover {
+        text-decoration: underline;
+      }
+
+      .error-message {
+        color: #b30000;
+        text-align: center;
+        margin-top: 15px;
+        font-size: 15px;
+        min-height: 20px;
+      }
     </style>
   </head>
   <body>
-    
+
     <img
       src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png"
       alt="UTA logo"
@@ -118,19 +131,75 @@
 
     <div class="login-box">
       <h2>UTA Student Portal</h2>
-      <form>
-          <label for="username">Email</label>
-          <input type="text" id="username" placeholder="Enter UTA Email">
 
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="Enter password">
+      <form id="loginForm">
+        <label for="username">Email</label>
+        <input type="text" id="username" placeholder="Enter UTA Email" required>
 
-          <button type="submit">Login</button>
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
       </form>
 
+      <p id="errorMessage" class="error-message"></p>
+
       <div class="reset">
-          <p>Forgot your password? <a href="#">Reset</a></p>
+        <p>Forgot your password? <a href="#">Reset</a></p>
       </div>
     </div>
+
+    <script>
+        // An example login for each user: student, registrar, accountant/finance, & admin
+      const users = [
+        {
+          email: "student@uta.edu",
+          password: "student123",
+          role: "student",
+          name: "Alex Johnson",
+          redirect: "studentHomepage.html"
+        },
+        {
+          email: "registrar@uta.edu",
+          password: "registrar123",
+          role: "registrar",
+          name: "Registrar Office",
+          redirect: "registerHomepage.html"
+        },
+        {
+          email: "accountant@uta.edu",
+          password: "accountant123",
+          role: "accountant",
+          name: "Finance Office",
+          redirect: "accountHomepage.html"
+        },
+        {
+          email: "admin@uta.edu",
+          password: "admin123",
+          role: "admin",
+          name: "System Admin",
+          redirect: "adminHomepage.html"
+        }
+      ];
+
+      document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = document.getElementById("username").value.trim().toLowerCase();
+        const password = document.getElementById("password").value.trim();
+        const errorMessage = document.getElementById("errorMessage");
+
+        const matchedUser = users.find(function(user) {
+          return user.email === email && user.password === password;
+        });
+
+        if (matchedUser) {
+          localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
+          window.location.href = matchedUser.redirect;
+        } else {
+          errorMessage.textContent = "Invalid email or password.";
+        }
+      });
+    </script>
   </body>
 </html>
