@@ -1,0 +1,4 @@
+PLEASE NOTE THAT INDEX IN HERE SHOUDL NOT BE IN HERE. IT IS ONLY HERE FOR TESTING PURPOSES AND SHOULD NOT BE USED WHATSOEVER. PLEASE REFER TO THE EXTERNAL index.html SO THAT ROLE-BASED ACCESS CAN FUNCTION PROPERLY. 
+----------------------------------------
+
+Our StudentPortal frontend is now complete! Here, we have the homepage, courses, course catalog, and billing with functions in javascript to ensure accuracy. This is  not the final product as there needs to be changes to the API and database connection. JavaScript is still not complete either as we need backend features applied.
