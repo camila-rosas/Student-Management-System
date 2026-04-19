@@ -1,0 +1,236 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Admin Financial Reports</title>
+      <link rel="stylesheet" href="admin_portal_style.css">
+    </head>
+    <body data-page="financial">
+      <aside class="portal-sidebar">
+        <div class="sidebar-top">
+          <div class="brand">
+            <div class="brand-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="UTA Logo">
+            </div>
+            <div class="brand-copy">
+              <div class="brand-title">Student Portal</div>
+              <div class="brand-subtitle">Management System</div>
+            </div>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="sidebar-link" href="adminHomepage.html"><span class="sidebar-icon">◫</span> Dashboard</a>
+<a class="sidebar-link" href="admin_course_catalog.html"><span class="sidebar-icon">📖</span> Course Catalog</a>
+<a class="sidebar-link" href="admin_course_management.html"><span class="sidebar-icon">◫</span> Course Management</a>
+<a class="sidebar-link" href="admin_student_accounts.html"><span class="sidebar-icon">◎</span> Student Accounts</a>
+<a class="sidebar-link active" href="admin_financial_reports.html"><span class="sidebar-icon">📄</span> Financial Reports</a>
+<a class="sidebar-link" href="admin_enrollment_reports.html"><span class="sidebar-icon">◫</span> Enrollment Reports</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="user-card">
+            <div class="avatar">MG</div>
+            <div class="user-text">
+              <div class="user-name">Maria Garcia</div>
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+
+          <a class="sign-out" href="index.html">↪ Sign Out</a>
+        </div>
+      </aside>
+
+      <div class="page-shell">
+        <header class="topbar">
+          <div class="term">Spring 2026</div>
+
+          <div class="bell-wrap" data-notices='["Financial report values should be rendered from Java-backed data.", "Collection metrics reflect posted charges and payments.", "Use this page for current-term finance summaries."]'>
+            <button class="bell-btn" type="button" aria-label="Notifications">
+              🔔
+              <span class="badge">3</span>
+            </button>
+
+            <div class="notice-panel">
+              <div class="notice-head">Notifications</div>
+              <div class="notice-list"></div>
+              <button class="notice-clear" type="button">Clear All</button>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content">
+
+<h1 class="page-title">Financial Reports</h1>
+<p class="page-subtitle">Financial summary and analytics for Spring 2026</p>
+
+<section class="card-grid card-grid-4">
+  <div class="stat-card">
+    <div>
+      <div class="card-label">Total Revenue</div>
+      <div class="card-value">$17,400.00</div>
+      <div class="card-note">Tuition + Fees</div>
+    </div>
+    <div class="icon-box">$</div>
+  </div>
+
+  <div class="stat-card soft-green">
+    <div>
+      <div class="card-label">Collected</div>
+      <div class="card-value value-success">$4,500.00</div>
+      <div class="card-note">Payments received</div>
+    </div>
+    <div class="icon-box success">↗</div>
+  </div>
+
+  <div class="stat-card soft-warning">
+    <div>
+      <div class="card-label">Outstanding</div>
+      <div class="card-value value-warning">$12,900.00</div>
+      <div class="card-note">Pending collection</div>
+    </div>
+    <div class="icon-box warning">〰</div>
+  </div>
+
+  <div class="stat-card">
+    <div>
+      <div class="card-label">Collection Rate</div>
+      <div class="card-value">26%</div>
+      <div class="card-note">Of total billed</div>
+    </div>
+    <div class="icon-box info">📄</div>
+  </div>
+</section>
+
+<div class="reports-grid">
+  <section class="panel chart-card">
+    <div class="section-title">Revenue Breakdown</div>
+    <div class="section-subtitle">Tuition vs fees for Spring 2026</div>
+
+    <div class="chart-body">
+      <div class="donut-wrap donut-revenue"></div>
+
+      <div class="legend-list">
+        <div class="legend-item"><span class="legend-dot" style="background: var(--accent);"></span> Tuition 98%</div>
+        <div class="legend-item"><span class="legend-dot" style="background: #f4cedb;"></span> Fees 2%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel chart-card">
+    <div class="section-title">Collection Status</div>
+    <div class="section-subtitle">Collected vs outstanding balances</div>
+
+    <div class="chart-body">
+      <div class="donut-wrap donut-collection"></div>
+
+      <div class="legend-list">
+        <div class="legend-item"><span class="legend-dot" style="background: var(--success);"></span> Collected 26%</div>
+        <div class="legend-item"><span class="legend-dot" style="background: var(--warning);"></span> Outstanding 74%</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<section class="panel" style="margin-bottom: 16px;">
+  <div class="section-title">Student Balance Distribution</div>
+  <div class="section-subtitle">Number of students by balance range</div>
+
+  <div class="distribution-chart">
+    <div class="distribution-column">
+      <div class="distribution-bar-wrap">
+        <div class="distribution-bar" style="height: 30px;">
+          <span class="distribution-value">1</span>
+        </div>
+      </div>
+      <div class="distribution-label">$0</div>
+    </div>
+
+    <div class="distribution-column">
+      <div class="distribution-bar-wrap">
+        <div class="distribution-bar" style="height: 2px;">
+          <span class="distribution-value">0</span>
+        </div>
+      </div>
+      <div class="distribution-label">$1-1000</div>
+    </div>
+
+    <div class="distribution-column">
+      <div class="distribution-bar-wrap">
+        <div class="distribution-bar" style="height: 125px;">
+          <span class="distribution-value">4</span>
+        </div>
+      </div>
+      <div class="distribution-label">$1001-3000</div>
+    </div>
+
+    <div class="distribution-column">
+      <div class="distribution-bar-wrap">
+        <div class="distribution-bar" style="height: 30px;">
+          <span class="distribution-value">1</span>
+        </div>
+      </div>
+      <div class="distribution-label">$3001-5000</div>
+    </div>
+
+    <div class="distribution-column">
+      <div class="distribution-bar-wrap">
+        <div class="distribution-bar" style="height: 2px;">
+          <span class="distribution-value">0</span>
+        </div>
+      </div>
+      <div class="distribution-label">$5000+</div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="section-title">Financial Summary</div>
+
+  <div class="table-wrap" style="margin-top: 14px;">
+    <table class="finance-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th class="ta-right">Amount</th>
+          <th class="ta-right">% of Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Tuition Charges</td>
+          <td class="ta-right">$17,100.00</td>
+          <td class="ta-right">98%</td>
+        </tr>
+        <tr>
+          <td>Fees</td>
+          <td class="ta-right">$300.00</td>
+          <td class="ta-right">2%</td>
+        </tr>
+        <tr>
+          <td>Total Revenue</td>
+          <td class="ta-right">$17,400.00</td>
+          <td class="ta-right">100%</td>
+        </tr>
+        <tr>
+          <td class="value-success">Payments Received</td>
+          <td class="ta-right value-success">$4,500.00</td>
+          <td class="ta-right">26%</td>
+        </tr>
+        <tr>
+          <td class="value-warning">Outstanding Balance</td>
+          <td class="ta-right value-warning">$12,900.00</td>
+          <td class="ta-right">74%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+        </main>
+      </div>
+
+      <script src="admin_portal.js"></script>
+    </body>
+    </html>

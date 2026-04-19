@@ -1,0 +1,287 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Admin Student Accounts</title>
+      <link rel="stylesheet" href="admin_portal_style.css">
+    </head>
+    <body data-page="accounts">
+      <aside class="portal-sidebar">
+        <div class="sidebar-top">
+          <div class="brand">
+            <div class="brand-icon">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="UTA Logo">
+            </div>
+            <div class="brand-copy">
+              <div class="brand-title">Student Portal</div>
+              <div class="brand-subtitle">Management System</div>
+            </div>
+          </div>
+
+          <nav class="sidebar-nav">
+            <a class="sidebar-link" href="adminHomepage.html"><span class="sidebar-icon">◫</span> Dashboard</a>
+<a class="sidebar-link" href="admin_course_catalog.html"><span class="sidebar-icon">📖</span> Course Catalog</a>
+<a class="sidebar-link" href="admin_course_management.html"><span class="sidebar-icon">◫</span> Course Management</a>
+<a class="sidebar-link active" href="admin_student_accounts.html"><span class="sidebar-icon">◎</span> Student Accounts</a>
+<a class="sidebar-link" href="admin_financial_reports.html"><span class="sidebar-icon">📄</span> Financial Reports</a>
+<a class="sidebar-link" href="admin_enrollment_reports.html"><span class="sidebar-icon">◫</span> Enrollment Reports</a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="user-card">
+            <div class="avatar">MG</div>
+            <div class="user-text">
+              <div class="user-name">Maria Garcia</div>
+              <div class="user-role">Administrator</div>
+            </div>
+          </div>
+
+          <a class="sign-out" href="index.html">↪ Sign Out</a>
+        </div>
+      </aside>
+
+      <div class="page-shell">
+        <header class="topbar">
+          <div class="term">Spring 2026</div>
+
+          <div class="bell-wrap" data-notices='["Search by student name, ID, or email to locate an account.", "Select a student to review account details.", "All balances shown here should be rendered by Java."]'>
+            <button class="bell-btn" type="button" aria-label="Notifications">
+              🔔
+              <span class="badge">3</span>
+            </button>
+
+            <div class="notice-panel">
+              <div class="notice-head">Notifications</div>
+              <div class="notice-list"></div>
+              <button class="notice-clear" type="button">Clear All</button>
+            </div>
+          </div>
+        </header>
+
+        <main class="page-content">
+
+<h1 class="page-title">Student Accounts</h1>
+<p class="page-subtitle">View and manage student financial accounts for Spring 2026</p>
+
+<section class="card-grid card-grid-3">
+  <div class="stat-card">
+    <div>
+      <div class="card-label">Total Students</div>
+      <div class="card-value">6</div>
+      <div class="card-note">Included in finance review</div>
+    </div>
+    <div class="icon-box">◎</div>
+  </div>
+
+  <div class="stat-card soft-warning">
+    <div>
+      <div class="card-label">Outstanding Balance</div>
+      <div class="card-value value-warning">$12,900.00</div>
+      <div class="card-note">Open student balances</div>
+    </div>
+    <div class="icon-box warning">$</div>
+  </div>
+
+  <div class="stat-card soft-green">
+    <div>
+      <div class="card-label">Paid in Full</div>
+      <div class="card-value value-success">1</div>
+      <div class="card-note">Accounts fully resolved</div>
+    </div>
+    <div class="icon-box success">◎</div>
+  </div>
+</section>
+
+<div class="account-workspace">
+  <section class="panel">
+    <div class="panel-head compact">
+      <div>
+        <div class="section-title">Student Accounts</div>
+        <div class="section-subtitle">Select a student to view details</div>
+      </div>
+    </div>
+
+    <label class="search-shell" for="studentAccountSearch">
+      <span class="search-icon">⌕</span>
+      <input id="studentAccountSearch" type="text" placeholder="Search by name, ID, or email..." autocomplete="off">
+    </label>
+
+    <div class="account-list">
+      <button class="account-row" type="button" data-student-id="1001234567" data-search="alex johnson 1001234567 alex.johnson@mavs.uta.edu computer science">
+        <div>
+          <div class="account-row-name">Alex Johnson</div>
+          <div class="account-row-id">1001234567</div>
+        </div>
+        <span class="balance-pill status-warning">$4,500.00</span>
+      </button>
+
+      <button class="account-row" type="button" data-student-id="1001234571" data-search="emma wilson 1001234571 emma.wilson@mavs.uta.edu business administration">
+        <div>
+          <div class="account-row-name">Emma Wilson</div>
+          <div class="account-row-id">1001234571</div>
+        </div>
+        <span class="balance-pill status-warning">$2,700.00</span>
+      </button>
+
+      <button class="account-row" type="button" data-student-id="1001234572" data-search="james brown 1001234572 james.brown@mavs.uta.edu accounting">
+        <div>
+          <div class="account-row-name">James Brown</div>
+          <div class="account-row-id">1001234572</div>
+        </div>
+        <span class="balance-pill status-success">$0.00</span>
+      </button>
+
+      <button class="account-row" type="button" data-student-id="1001234573" data-search="olivia davis 1001234573 olivia.davis@mavs.uta.edu biology">
+        <div>
+          <div class="account-row-name">Olivia Davis</div>
+          <div class="account-row-id">1001234573</div>
+        </div>
+        <span class="balance-pill status-warning">$1,350.00</span>
+      </button>
+
+      <button class="account-row" type="button" data-student-id="1001234574" data-search="william taylor 1001234574 william.taylor@mavs.uta.edu psychology">
+        <div>
+          <div class="account-row-name">William Taylor</div>
+          <div class="account-row-id">1001234574</div>
+        </div>
+        <span class="balance-pill status-warning">$2,850.00</span>
+      </button>
+    </div>
+  </section>
+
+  <section class="panel account-detail-panel">
+    <div class="account-detail-empty">
+      <div class="empty-icon">◎</div>
+      <div>Select a student to view account details</div>
+    </div>
+
+    <div data-account-detail="1001234567" style="display:none;">
+      <div class="account-detail-head">
+        <div>
+          <div class="detail-name">Alex Johnson</div>
+          <div class="detail-subline">1001234567 • alex.johnson@mavs.uta.edu</div>
+        </div>
+        <span class="detail-status detail-status-warning">Balance Due</span>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card"><small>Major</small><strong>Computer Science</strong></div>
+        <div class="detail-card"><small>Total Billed</small><strong>$4,500.00</strong></div>
+        <div class="detail-card"><small>Payments</small><strong>$0.00</strong></div>
+        <div class="detail-card"><small>Current Balance</small><strong class="value-warning">$4,500.00</strong></div>
+        <div class="detail-card"><small>Enrollments</small><strong>3</strong></div>
+        <div class="detail-card"><small>Last Payment</small><strong>No payment yet</strong></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-label">Finance Notes</div>
+        <p class="detail-note-copy">Requires follow-up before registration hold is released.</p>
+      </div>
+    </div>
+
+    <div data-account-detail="1001234571" style="display:none;">
+      <div class="account-detail-head">
+        <div>
+          <div class="detail-name">Emma Wilson</div>
+          <div class="detail-subline">1001234571 • emma.wilson@mavs.uta.edu</div>
+        </div>
+        <span class="detail-status detail-status-warning">Balance Due</span>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card"><small>Major</small><strong>Business Administration</strong></div>
+        <div class="detail-card"><small>Total Billed</small><strong>$2,700.00</strong></div>
+        <div class="detail-card"><small>Payments</small><strong>$0.00</strong></div>
+        <div class="detail-card"><small>Current Balance</small><strong class="value-warning">$2,700.00</strong></div>
+        <div class="detail-card"><small>Enrollments</small><strong>2</strong></div>
+        <div class="detail-card"><small>Last Payment</small><strong>No payment yet</strong></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-label">Finance Notes</div>
+        <p class="detail-note-copy">Payment plan has not yet been activated.</p>
+      </div>
+    </div>
+
+    <div data-account-detail="1001234572" style="display:none;">
+      <div class="account-detail-head">
+        <div>
+          <div class="detail-name">James Brown</div>
+          <div class="detail-subline">1001234572 • james.brown@mavs.uta.edu</div>
+        </div>
+        <span class="detail-status detail-status-success">Paid in Full</span>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card"><small>Major</small><strong>Accounting</strong></div>
+        <div class="detail-card"><small>Total Billed</small><strong>$1,800.00</strong></div>
+        <div class="detail-card"><small>Payments</small><strong>$1,800.00</strong></div>
+        <div class="detail-card"><small>Current Balance</small><strong class="value-success">$0.00</strong></div>
+        <div class="detail-card"><small>Enrollments</small><strong>1</strong></div>
+        <div class="detail-card"><small>Last Payment</small><strong>Jan 25, 2026</strong></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-label">Finance Notes</div>
+        <p class="detail-note-copy">Account is clear for the current term.</p>
+      </div>
+    </div>
+
+    <div data-account-detail="1001234573" style="display:none;">
+      <div class="account-detail-head">
+        <div>
+          <div class="detail-name">Olivia Davis</div>
+          <div class="detail-subline">1001234573 • olivia.davis@mavs.uta.edu</div>
+        </div>
+        <span class="detail-status detail-status-warning">Balance Due</span>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card"><small>Major</small><strong>Biology</strong></div>
+        <div class="detail-card"><small>Total Billed</small><strong>$1,800.00</strong></div>
+        <div class="detail-card"><small>Payments</small><strong>$450.00</strong></div>
+        <div class="detail-card"><small>Current Balance</small><strong class="value-warning">$1,350.00</strong></div>
+        <div class="detail-card"><small>Enrollments</small><strong>1</strong></div>
+        <div class="detail-card"><small>Last Payment</small><strong>Feb 03, 2026</strong></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-label">Finance Notes</div>
+        <p class="detail-note-copy">Partial payment received. Balance remains due.</p>
+      </div>
+    </div>
+
+    <div data-account-detail="1001234574" style="display:none;">
+      <div class="account-detail-head">
+        <div>
+          <div class="detail-name">William Taylor</div>
+          <div class="detail-subline">1001234574 • william.taylor@mavs.uta.edu</div>
+        </div>
+        <span class="detail-status detail-status-warning">Balance Due</span>
+      </div>
+
+      <div class="detail-grid">
+        <div class="detail-card"><small>Major</small><strong>Psychology</strong></div>
+        <div class="detail-card"><small>Total Billed</small><strong>$3,150.00</strong></div>
+        <div class="detail-card"><small>Payments</small><strong>$300.00</strong></div>
+        <div class="detail-card"><small>Current Balance</small><strong class="value-warning">$2,850.00</strong></div>
+        <div class="detail-card"><small>Enrollments</small><strong>2</strong></div>
+        <div class="detail-card"><small>Last Payment</small><strong>Feb 09, 2026</strong></div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-label">Finance Notes</div>
+        <p class="detail-note-copy">Needs reminder before late fee assessment.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+        </main>
+      </div>
+
+      <script src="admin_portal.js"></script>
+    </body>
+    </html>
