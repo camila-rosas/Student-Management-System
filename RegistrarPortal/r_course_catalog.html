@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Course Catalog</title>
+  <link rel="stylesheet" href="r_portal_style.css">
+</head>
+<body>
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="School Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="registrarHomepage.html">◫ Dashboard</a>
+        <a class="sidebar-link active" href="r_course_catalog.html">📖 Course Catalog</a>
+        <a class="sidebar-link" href="course_management.html">📋 Course Management</a>
+        <a class="sidebar-link" href="r_reports.html">🗂 Enrollment Reports</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">SM</div>
+        <div class="user-text">
+          <div class="user-name">Sarah Miller</div>
+          <div class="user-role">Registrar</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Spring 2026</div>
+
+      <div class="bell-wrap" data-notices='[
+        "Catalog loaded successfully.",
+        "Review seat availability before opening registration."
+      ]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">2</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h1 class="page-title">Course Catalog</h1>
+      <p class="page-subtitle">Browse and review courses • Spring 2026</p>
+
+      <div class="search-row">
+        <input class="search-input catalog-search-input" type="text" placeholder="Search by course code, name, or instructor...">
+        <select class="catalog-filter">
+          <option value="all">All Courses</option>
+          <option value="open">Open Seats</option>
+          <option value="nearly-full">Nearly Full</option>
+          <option value="full">Full</option>
+        </select>
+      </div>
+
+      <section class="catalog-grid">
+        <article class="course-card" data-enrolled="28" data-capacity="35">
+          <div class="course-top">
+            <div>
+              <div class="course-code">INSY 4325 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Enterprise Systems Development</div>
+            </div>
+            <div class="seat-pill">7 seats</div>
+          </div>
+          <div class="course-desc">Design and implementation of enterprise-level information systems.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Amanda Foster</span><span>📍 COBA 215</span></div>
+            <div class="meta-row"><span>🕒 Mon/Wed 2:00 PM - 3:20 PM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">28/35 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="40" data-capacity="40">
+          <div class="course-top">
+            <div>
+              <div class="course-code">CSE 3310 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Fundamentals of Software Engineering</div>
+            </div>
+            <div class="seat-pill full">Full</div>
+          </div>
+          <div class="course-desc">Introduction to software engineering principles and practices.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Robert Kim</span><span>📍 ERB 103</span></div>
+            <div class="meta-row"><span>🕒 Tue/Thu 11:00 AM - 12:20 PM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">40/40 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="32" data-capacity="45">
+          <div class="course-top">
+            <div>
+              <div class="course-code">MATH 2326 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Calculus III</div>
+            </div>
+            <div class="seat-pill">13 seats</div>
+          </div>
+          <div class="course-desc">Multivariable calculus and vector analysis.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Patricia Lee</span><span>📍 PKH 101</span></div>
+            <div class="meta-row"><span>🕒 Mon/Wed/Fri 10:00 AM - 10:50 AM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">32/45 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="18" data-capacity="25">
+          <div class="course-top">
+            <div>
+              <div class="course-code">ENGL 1302 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Rhetoric and Composition II</div>
+            </div>
+            <div class="seat-pill">7 seats</div>
+          </div>
+          <div class="course-desc">Advanced composition focusing on research and argumentation.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Prof. Michael Torres</span><span>📍 LIBR 202</span></div>
+            <div class="meta-row"><span>🕒 Tue/Thu 9:30 AM - 10:50 AM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">18/25 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="42" data-capacity="50">
+          <div class="course-top">
+            <div>
+              <div class="course-code">PHYS 1441 <span class="hours-pill">4 hrs</span></div>
+              <div class="course-name">General Technical Physics I</div>
+            </div>
+            <div class="seat-pill">8 seats</div>
+          </div>
+          <div class="course-desc">Mechanics, heat, and wave motion with calculus applications.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Jennifer Adams</span><span>📍 SH 100</span></div>
+            <div class="meta-row"><span>🕒 Mon/Wed 3:30 PM - 4:50 PM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">42/50 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="55" data-capacity="60">
+          <div class="course-top">
+            <div>
+              <div class="course-code">ACCT 2301 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Principles of Accounting I</div>
+            </div>
+            <div class="seat-pill">5 seats</div>
+          </div>
+          <div class="course-desc">Introduction to financial accounting principles.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Lisa Wang</span><span>📍 COBA 140</span></div>
+            <div class="meta-row"><span>🕒 Mon/Wed 1:00 PM - 2:20 PM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">55/60 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="35" data-capacity="48">
+          <div class="course-top">
+            <div>
+              <div class="course-code">BIOL 1441 <span class="hours-pill">4 hrs</span></div>
+              <div class="course-name">Cell and Molecular Biology</div>
+            </div>
+            <div class="seat-pill">13 seats</div>
+          </div>
+          <div class="course-desc">Fundamental concepts of cellular and molecular biology.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Susan Clark</span><span>📍 LS 103</span></div>
+            <div class="meta-row"><span>🕒 Tue/Thu 1:00 PM - 2:20 PM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">35/48 enrolled</span><span></span></div>
+          </div>
+        </article>
+
+        <article class="course-card" data-enrolled="72" data-capacity="80">
+          <div class="course-top">
+            <div>
+              <div class="course-code">PSYC 1315 <span class="hours-pill">3 hrs</span></div>
+              <div class="course-name">Introduction to Psychology</div>
+            </div>
+            <div class="seat-pill">8 seats</div>
+          </div>
+          <div class="course-desc">Survey of major topics in psychology.</div>
+          <div class="meta-stack">
+            <div class="meta-row"><span>👤 Dr. Mark Johnson</span><span>📍 UH 100</span></div>
+            <div class="meta-row"><span>🕒 Mon/Wed/Fri 11:00 AM - 11:50 AM</span><span></span></div>
+            <div class="meta-row"><span class="enrolled-text">72/80 enrolled</span><span></span></div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+
+  <script src="r_portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrollment Reports</title>
+  <link rel="stylesheet" href="r_portal_style.css">
+</head>
+<body>
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="School Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="registrarHomepage.html">◫ Dashboard</a>
+        <a class="sidebar-link" href="r_course_catalog.html">📖 Course Catalog</a>
+        <a class="sidebar-link" href="course_management.html">📋 Course Management</a>
+        <a class="sidebar-link active" href="r_reports.html">🗂 Enrollment Reports</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">SM</div>
+        <div class="user-text">
+          <div class="user-name">Sarah Miller</div>
+          <div class="user-role">Registrar</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Spring 2026</div>
+
+      <div class="bell-wrap" data-notices='[
+        "Enrollment analytics were updated today."
+      ]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">1</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h1 class="page-title">Enrollment Reports</h1>
+      <p class="page-subtitle">Enrollment statistics and analytics for Spring 2026</p>
+
+      <section class="card-grid">
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Students</div>
+            <div class="card-value">6</div>
+          </div>
+          <div class="icon-box">👥</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Active Courses</div>
+            <div class="card-value">8</div>
+          </div>
+          <div class="icon-box">📘</div>
+        </div>
+
+        <div class="stat-card soft-green">
+          <div>
+            <div class="card-label">Active Enrollments</div>
+            <div class="card-value">11</div>
+          </div>
+          <div class="icon-box">📚</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Avg. Enrollment Rate</div>
+            <div class="card-value">84%</div>
+          </div>
+          <div class="icon-box">📈</div>
+        </div>
+      </section>
+
+      <section class="reports-grid">
+        <div class="panel">
+          <div class="section-title">Enrollment by Course</div>
+          <div class="section-subtitle">Current enrollment vs capacity</div>
+
+          <div class="chart-list">
+            <div class="chart-row"><span>CSE 3310</span><div class="bar-bg"><div class="bar-fill" style="width: 50%;"></div></div><span>40/80</span></div>
+            <div class="chart-row"><span>ACCT 2301</span><div class="bar-bg"><div class="bar-fill" style="width: 68%;"></div></div><span>55/80</span></div>
+            <div class="chart-row"><span>PSYC 1315</span><div class="bar-bg"><div class="bar-fill" style="width: 90%;"></div></div><span>72/80</span></div>
+            <div class="chart-row"><span>PHYS 1441</span><div class="bar-bg"><div class="bar-fill" style="width: 84%;"></div></div><span>42/50</span></div>
+            <div class="chart-row"><span>INSY 4325</span><div class="bar-bg"><div class="bar-fill" style="width: 80%;"></div></div><span>28/35</span></div>
+            <div class="chart-row"><span>BIOL 1441</span><div class="bar-bg"><div class="bar-fill" style="width: 73%;"></div></div><span>35/48</span></div>
+            <div class="chart-row"><span>ENGL 1302</span><div class="bar-bg"><div class="bar-fill" style="width: 72%;"></div></div><span>18/25</span></div>
+            <div class="chart-row"><span>MATH 2326</span><div class="bar-bg"><div class="bar-fill" style="width: 71%;"></div></div><span>32/45</span></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="section-title">Capacity Utilization</div>
+          <div class="section-subtitle">Courses by enrollment percentage</div>
+
+          <div class="donut-wrap">
+            <div class="donut-chart"></div>
+            <div class="donut-legend">
+              <span><i class="dot dot-full"></i> Full (100%)</span>
+              <span><i class="dot dot-high"></i> High (75-99%)</span>
+              <span><i class="dot dot-medium"></i> Medium (50-74%)</span>
+              <span><i class="dot dot-low"></i> Low (&lt;50%)</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">Course Enrollment Details</div>
+        <div class="section-subtitle">Detailed enrollment status for all courses</div>
+
+        <div class="report-table-wrap">
+          <table class="report-table">
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Instructor</th>
+                <th>Schedule</th>
+                <th>Enrolled</th>
+                <th>Capacity</th>
+                <th>Status</th>
+                <th>Utilization</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>INSY 4325</strong><br><small>Enterprise Systems Development</small></td>
+                <td>Dr. Amanda Foster</td>
+                <td>Mon/Wed 2:00 PM - 3:20 PM</td>
+                <td>28</td>
+                <td>35</td>
+                <td><span class="status-pill available">Available</span></td>
+                <td><div class="mini-util"><div style="width: 80%;"></div></div>80%</td>
+              </tr>
+              <tr>
+                <td><strong>CSE 3310</strong><br><small>Fundamentals of Software Engineering</small></td>
+                <td>Dr. Robert Kim</td>
+                <td>Tue/Thu 11:00 AM - 12:20 PM</td>
+                <td>40</td>
+                <td>40</td>
+                <td><span class="status-pill full-status">Full</span></td>
+                <td><div class="mini-util"><div style="width: 100%;"></div></div>100%</td>
+              </tr>
+              <tr>
+                <td><strong>MATH 2326</strong><br><small>Calculus III</small></td>
+                <td>Dr. Patricia Lee</td>
+                <td>Mon/Wed/Fri 10:00 AM - 10:50 AM</td>
+                <td>32</td>
+                <td>45</td>
+                <td><span class="status-pill available">Available</span></td>
+                <td><div class="mini-util"><div style="width: 71%;"></div></div>71%</td>
+              </tr>
+              <tr>
+                <td><strong>ENGL 1302</strong><br><small>Rhetoric and Composition II</small></td>
+                <td>Prof. Michael Torres</td>
+                <td>Tue/Thu 9:30 AM - 10:50 AM</td>
+                <td>18</td>
+                <td>25</td>
+                <td><span class="status-pill available">Available</span></td>
+                <td><div class="mini-util"><div style="width: 72%;"></div></div>72%</td>
+              </tr>
+              <tr>
+                <td><strong>PHYS 1441</strong><br><small>General Technical Physics I</small></td>
+                <td>Dr. Jennifer Adams</td>
+                <td>Mon/Wed 3:30 PM - 4:50 PM</td>
+                <td>42</td>
+                <td>50</td>
+                <td><span class="status-pill available">Available</span></td>
+                <td><div class="mini-util"><div style="width: 84%;"></div></div>84%</td>
+              </tr>
+              <tr>
+                <td><strong>ACCT 2301</strong><br><small>Principles of Accounting I</small></td>
+                <td>Dr. Lisa Wang</td>
+                <td>Mon/Wed 1:00 PM - 2:20 PM</td>
+                <td>55</td>
+                <td>60</td>
+                <td><span class="status-pill nearly-full">Nearly Full</span></td>
+                <td><div class="mini-util"><div style="width: 92%;"></div></div>92%</td>
+              </tr>
+              <tr>
+                <td><strong>BIOL 1441</strong><br><small>Cell and Molecular Biology</small></td>
+                <td>Dr. Susan Clark</td>
+                <td>Tue/Thu 1:00 PM - 2:20 PM</td>
+                <td>35</td>
+                <td>48</td>
+                <td><span class="status-pill available">Available</span></td>
+                <td><div class="mini-util"><div style="width: 73%;"></div></div>73%</td>
+              </tr>
+              <tr>
+                <td><strong>PSYC 1315</strong><br><small>Introduction to Psychology</small></td>
+                <td>Dr. Mark Johnson</td>
+                <td>Mon/Wed/Fri 11:00 AM - 11:50 AM</td>
+                <td>72</td>
+                <td>80</td>
+                <td><span class="status-pill nearly-full">Nearly Full</span></td>
+                <td><div class="mini-util"><div style="width: 90%;"></div></div>90%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="billing-grid registrar-bottom-stats">
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Capacity</div>
+            <div class="card-value">383</div>
+            <div class="card-note">Seats across all courses</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Filled Seats</div>
+            <div class="card-value">322</div>
+            <div class="card-note">Currently enrolled</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Available Seats</div>
+            <div class="card-value">61</div>
+            <div class="card-note">Open for registration</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="r_portal.js"></script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registrar Dashboard</title>
+  <link rel="stylesheet" href="r_portal_style.css">
+</head>
+<body>
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+           <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="School Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link active" href="registrarHomepage.html">◫ Dashboard</a>
+        <a class="sidebar-link" href="r_course_catalog.html">📖 Course Catalog</a>
+        <a class="sidebar-link" href="course_management.html">📋 Course Management</a>
+        <a class="sidebar-link" href="r_reports.html">🗂 Enrollment Reports</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">SM</div>
+        <div class="user-text">
+          <div class="user-name">Sarah Miller</div>
+          <div class="user-role">Registrar</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Spring 2026</div>
+
+      <div class="bell-wrap" data-notices='[
+        "2 new course updates are awaiting review.",
+        "Enrollment reports were refreshed this morning."
+      ]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">2</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h1 class="page-title">Welcome back, <span class="page-user-name">Sarah</span></h1>
+      <p class="page-subtitle">Here's what's happening in Spring 2026</p>
+
+      <div class="info-bar registrar-dates">
+        <span><strong>🗓 Important Dates:</strong></span>
+        <span>⏰ Registration Deadline: <strong>Feb 14, 2026</strong></span>
+        <span>⏰ Drop Deadline: <strong>Feb 28, 2026</strong></span>
+      </div>
+
+      <section class="card-grid">
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Students</div>
+            <div class="card-value">6</div>
+            <div class="card-note registrar-positive">↗ 12% vs last semester</div>
+          </div>
+          <div class="icon-box">👥</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Active Courses</div>
+            <div class="card-value">8</div>
+            <div class="card-note">Spring 2026</div>
+          </div>
+          <div class="icon-box">📘</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Enrollments</div>
+            <div class="card-value">11</div>
+            <div class="card-note">Across active offerings</div>
+          </div>
+          <div class="icon-box">🎓</div>
+        </div>
+
+        <div class="stat-card soft-green">
+          <div>
+            <div class="card-label">Avg. Enrollment Rate</div>
+            <div class="card-value">83%</div>
+            <div class="card-note">Course capacity usage</div>
+          </div>
+          <div class="icon-box">📈</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">Course Enrollment Overview</div>
+        <div class="section-subtitle">Current enrollment status for Spring 2026</div>
+
+        <div class="overview-list">
+          <div class="overview-item">
+            <div class="overview-top">
+              <span><strong>INSY 4325</strong> Enterprise Systems Development</span>
+              <span>28/35</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-top">
+              <span><strong>CSE 3310</strong> Fundamentals of Software Engineering</span>
+              <span>40/40</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-top">
+              <span><strong>MATH 2326</strong> Calculus III</span>
+              <span>32/45</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 71%;"></div></div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-top">
+              <span><strong>ENGL 1302</strong> Rhetoric and Composition II</span>
+              <span>18/25</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 72%;"></div></div>
+          </div>
+
+          <div class="overview-item">
+            <div class="overview-top">
+              <span><strong>PHYS 1441</strong> General Technical Physics I</span>
+              <span>42/50</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 84%;"></div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="r_portal.js"></script>
+</body>
+</html>
