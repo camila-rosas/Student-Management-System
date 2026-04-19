@@ -1,5 +1,8 @@
 /* Registrar portal JavaScript
    Dynamic localStorage version with student-portal bridge
+   
+   Note: I messed up, we will not be using all of this code. This code is meant to be a temporary and will
+            be rewritten to connect to SprinBoot for interactive elements. 
 */
 
 const SHARED_CATALOG_KEY = 'sms_shared_catalog_v1';
