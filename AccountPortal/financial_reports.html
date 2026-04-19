@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Reports</title>
+  <link rel="stylesheet" href="accounts_portal_style.css">
+</head>
+<body>
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="UTA Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="accountHomepage.html"><span class="sidebar-icon">◫</span> Dashboard</a>
+        <a class="sidebar-link" href="finance_accounts.html"><span class="sidebar-icon">◎</span> Student Accounts</a>
+        <a class="sidebar-link active" href="financial_reports.html"><span class="sidebar-icon">▣</span> Financial Reports</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">AC</div>
+        <div class="user-text">
+          <div class="user-name">Accounts User</div>
+          <div class="user-role">Accounts Office</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Spring 2026</div>
+
+      <div class="bell-wrap" data-notices='[
+        "Report values shown on this page should come from Java.",
+        "Collection rate reflects current posted balances and payments.",
+        "Use this page for finance summaries and reporting snapshots."
+      ]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">3</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <h1 class="page-title">Financial Reports</h1>
+      <p class="page-subtitle">Review summarized finance performance for Spring 2026</p>
+
+      <section class="card-grid card-grid-4">
+        <div class="stat-card">
+          <div class="card-copy">
+            <div class="card-label">Total Revenue</div>
+            <div class="card-value">$18,750.00</div>
+            <div class="card-note">Charges plus fees</div>
+          </div>
+          <div class="icon-box">$</div>
+        </div>
+
+        <div class="stat-card soft-green">
+          <div class="card-copy">
+            <div class="card-label">Payments Collected</div>
+            <div class="card-value value-success">$4,500.00</div>
+            <div class="card-note">Posted to student accounts</div>
+          </div>
+          <div class="icon-box">✔</div>
+        </div>
+
+        <div class="stat-card soft-warning">
+          <div class="card-copy">
+            <div class="card-label">Outstanding Balance</div>
+            <div class="card-value value-warning">$14,250.00</div>
+            <div class="card-note">Still unpaid</div>
+          </div>
+          <div class="icon-box">!</div>
+        </div>
+
+        <div class="stat-card">
+          <div class="card-copy">
+            <div class="card-label">Collection Rate</div>
+            <div class="card-value">24%</div>
+            <div class="card-note">Of total billed amount</div>
+          </div>
+          <div class="icon-box">◔</div>
+        </div>
+      </section>
+
+      <div class="reports-grid">
+        <section class="panel">
+          <div class="panel-head compact">
+            <div>
+              <div class="section-title">Revenue Summary</div>
+              <div class="section-subtitle">Breakdown of billed amounts</div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="finance-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th class="ta-right">Amount</th>
+                  <th class="ta-right">Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Tuition Charges</td>
+                  <td class="ta-right">$18,450.00</td>
+                  <td class="ta-right">98%</td>
+                </tr>
+                <tr>
+                  <td>Fees</td>
+                  <td class="ta-right">$300.00</td>
+                  <td class="ta-right">2%</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Revenue</strong></td>
+                  <td class="ta-right"><strong>$18,750.00</strong></td>
+                  <td class="ta-right"><strong>100%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head compact">
+            <div>
+              <div class="section-title">Collection Summary</div>
+              <div class="section-subtitle">Payments versus remaining balances</div>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="finance-table">
+              <thead>
+                <tr>
+                  <th>Category</th>
+                  <th class="ta-right">Amount</th>
+                  <th class="ta-right">Share</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Payments Received</td>
+                  <td class="ta-right value-success">$4,500.00</td>
+                  <td class="ta-right value-success">24%</td>
+                </tr>
+                <tr>
+                  <td>Outstanding Balance</td>
+                  <td class="ta-right value-warning">$14,250.00</td>
+                  <td class="ta-right value-warning">76%</td>
+                </tr>
+                <tr>
+                  <td><strong>Total Billed</strong></td>
+                  <td class="ta-right"><strong>$18,750.00</strong></td>
+                  <td class="ta-right"><strong>100%</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <div class="section-title">Outstanding Balances by Student</div>
+            <div class="section-subtitle">Current finance snapshot</div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="finance-table">
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Major</th>
+                <th class="ta-right">Billed</th>
+                <th class="ta-right">Paid</th>
+                <th class="ta-right">Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alex Johnson</td>
+                <td>Computer Science</td>
+                <td class="ta-right">$4,500.00</td>
+                <td class="ta-right">$0.00</td>
+                <td class="ta-right value-warning">$4,500.00</td>
+              </tr>
+              <tr>
+                <td>Emma Wilson</td>
+                <td>Business Administration</td>
+                <td class="ta-right">$2,700.00</td>
+                <td class="ta-right">$0.00</td>
+                <td class="ta-right value-warning">$2,700.00</td>
+              </tr>
+              <tr>
+                <td>James Brown</td>
+                <td>Accounting</td>
+                <td class="ta-right">$1,800.00</td>
+                <td class="ta-right">$1,800.00</td>
+                <td class="ta-right value-success">$0.00</td>
+              </tr>
+              <tr>
+                <td>Olivia Davis</td>
+                <td>Biology</td>
+                <td class="ta-right">$1,800.00</td>
+                <td class="ta-right">$450.00</td>
+                <td class="ta-right value-warning">$1,350.00</td>
+              </tr>
+              <tr>
+                <td>William Taylor</td>
+                <td>Psychology</td>
+                <td class="ta-right">$3,150.00</td>
+                <td class="ta-right">$300.00</td>
+                <td class="ta-right value-warning">$2,850.00</td>
+              </tr>
+              <tr>
+                <td>Sophia Martinez</td>
+                <td>Information Systems</td>
+                <td class="ta-right">$5,100.00</td>
+                <td class="ta-right">$1,950.00</td>
+                <td class="ta-right value-warning">$3,150.00</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="accounts_portal.js"></script>
+</body>
+</html>
