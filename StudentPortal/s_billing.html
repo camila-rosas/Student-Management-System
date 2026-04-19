@@ -1,0 +1,123 @@
+<!-- Created By: David Vargas
+	
+NOTE: Data will be dynamic, just waiting on backend...
+
+	s_billing.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Billing Account</title>
+  <link rel="stylesheet" href="s_portal_style.css">
+</head>
+<body>
+  <!-- Fixed sidebar -->
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+           <div class="brand-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="School Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="studentHomepage.html">◫ Dashboard</a>
+        <a class="sidebar-link" href="s_course_catalog.html">📖 Course Catalog</a>
+        <a class="sidebar-link" href="my_courses.html">🎓 My Courses</a>
+        <a class="sidebar-link active" href="s_billing.html">💲 Billing</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">AJ</div>
+        <div class="user-text">
+          <div class="user-name">Alex Johnson</div>
+          <div class="user-role">Student</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Fall 2026</div>
+
+      <!-- Notifications -->
+      <div class="bell-wrap" data-notices='[
+        "Current balance is $0.00.",
+        "No new billing transactions have posted yet."
+      ]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">2</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hardcoded for now. Will wait to be dynamically updated-->
+
+    <main class="page-content">
+      <h1 class="page-title">Billing Account</h1>
+      <p class="page-subtitle">View your tuition charges and payments for Fall 2026</p>
+
+      <section class="billing-grid">
+        <div class="stat-card soft-green">
+          <div>
+            <div class="card-label">Current Balance</div>
+            <div class="card-value">$0.00</div>
+            <div class="card-note">No balance due</div>
+          </div>
+          <div class="icon-box">💲</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Charges</div>
+            <div class="card-value">$0.00</div>
+            <div class="card-note">0 credit hours</div>
+          </div>
+          <div class="icon-box">⏺</div>
+        </div>
+
+        <div class="stat-card">
+          <div>
+            <div class="card-label">Total Payments</div>
+            <div class="card-value">$0.00</div>
+            <div class="card-note">Payments &amp; refunds</div>
+          </div>
+          <div class="icon-box">✔</div>
+        </div>
+      </section>
+
+      <div class="billing-note">Current tuition rate: <strong>$450</strong> per credit hour</div>
+
+      <section class="panel billing-history">
+        <div class="section-title">Transaction History</div>
+        <div class="section-subtitle">All charges, payments, and fees for Fall 2026</div>
+
+        <div class="empty-wrap">
+          <div class="empty-icon">💲</div>
+          <div class="empty-copy">No transactions yet.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="s_portal.js"></script>
+</body>
+</html>
