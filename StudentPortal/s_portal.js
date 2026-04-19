@@ -1,7 +1,8 @@
 /* David Vargas
 
 Student portal JavaScript
-Synced with registrar shared catalog
+Note: I messed up, we will not be using all of this code. This code is meant to be a temporary and will
+            be rewritten to connect to SprinBoot for interactive elements. 
 
 Handles:
 - Student login/session guard
