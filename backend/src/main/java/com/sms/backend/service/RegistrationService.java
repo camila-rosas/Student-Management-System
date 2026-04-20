@@ -57,7 +57,8 @@ public class RegistrationService {
         courseRepository.save(course);
 
         // billing update
-        Account acc = accountRepository.findById(studentId).orElseThrow();
+        Account acc = accountRepository.findByStudent_StudentId(studentId)
+        .orElseThrow(() -> new RuntimeException("Account not found"));
         double cost = course.getCourseHours() * 300;
 
         acc.setCurrentBalance(acc.getCurrentBalance() + cost);
