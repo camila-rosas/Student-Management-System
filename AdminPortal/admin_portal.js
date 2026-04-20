@@ -2,6 +2,14 @@
   admin_portal.js
 */
 
+//Updated
+const API = "http://localhost:8080";
+
+function getToken() {
+  return localStorage.getItem("token");
+}
+
+/* Updated
 function getLoggedInUser() {
   try {
     const raw = localStorage.getItem('loggedInUser');
@@ -10,6 +18,7 @@ function getLoggedInUser() {
     return null;
   }
 }
+*/
 
 function getInitials(name) {
   if (!name) return 'AD';
@@ -23,6 +32,7 @@ function getInitials(name) {
   return (parts[0][0] + parts[1][0]).toUpperCase();
 }
 
+/*
 function guardAdminAccess() {
   const user = getLoggedInUser();
 
@@ -41,9 +51,31 @@ function guardAdminAccess() {
 
   return user;
 }
+*/
+
+//Updated - replaces guardAdminAccess
+async function getLoggedInUser() {
+  const token = getToken();
+  if (!token) return null;
+
+  try {
+    const res = await fetch(`${API}/api/users/me`, {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    if (!res.ok) return null;
+
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
 
 function hydrateAdminUser(user) {
-  const displayName = user.name || 'Administrator';
+  //Updated
+  const displayName = user.name || user.username || 'Administrator';
   const initials = getInitials(displayName);
   const firstName = displayName.split(' ')[0] || displayName;
 
@@ -68,8 +100,10 @@ function bindSignOut() {
   document.querySelectorAll('.sign-out').forEach(function (link) {
     link.addEventListener('click', function (event) {
       event.preventDefault();
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'index.html';
+      //Updated
+      localStorage.clear();
+      //Updated
+      window.location.href = '../index.html';
     });
   });
 }
@@ -298,9 +332,35 @@ function setupAccountSelection() {
   showDetail('');
 }
 
+/*Updated 
 function initAdminPortal() {
   const user = guardAdminAccess();
   if (!user) return;
+
+  hydrateAdminUser(user);
+  bindSignOut();
+  createNoticeSystem();
+  setupCatalogFilter();
+  setupManagementSearch();
+  setupAccountSearch();
+  setupAccountSelection();
+}
+*/
+
+async function initAdminPortal() {
+  const user = await getLoggedInUser();
+
+  if (!user) {
+    window.location.href = '../index.html';
+    return;
+  }
+
+  const role = String(user.role || '').toLowerCase();
+
+  if (!['admin'].includes(role)) {
+    window.location.href = '../index.html';
+    return;
+  }
 
   hydrateAdminUser(user);
   bindSignOut();
