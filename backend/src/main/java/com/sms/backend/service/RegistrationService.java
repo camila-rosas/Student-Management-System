@@ -85,6 +85,14 @@ public class RegistrationService {
 
         reg.setStatus("DROPPED");
 
+        Account acc = accountRepository.findByStudent_StudentId(
+        reg.getStudent().getStudentId()).orElseThrow();
+        
+        double refund = reg.getCourse().getCourseHours() * 300;
+        
+        acc.setCurrentBalance(acc.getCurrentBalance() - refund);
+        accountRepository.save(acc);
+
         Course course = reg.getCourse();
         course.setEnrolledCount(course.getEnrolledCount() - 1);
         courseRepository.save(course);
