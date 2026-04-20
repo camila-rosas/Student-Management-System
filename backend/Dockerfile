@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-RUN apt-get update && apt-get install -y gradle
+RUN chmod +x gradlew
 
-RUN gradle build -x test
+RUN ./gradlew build -x test
 
+# Find jar dynamically instead of hardcoding name
 CMD ["sh", "-c", "java -jar $(ls build/libs/*.jar)"]
