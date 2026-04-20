@@ -118,6 +118,21 @@ NOTE: Data will be dynamic, just waiting on backend...
     </main>
   </div>
 
+	<div>
+  		<h2>Account Summary</h2>
+  		<p>Balance: <span id="balance"></span></p>
+  		<p>Total Charges: <span id="charges"></span></p>
+ 		<p>Total Payments: <span id="payments"></span></p>
+	</div>
+
+	<hr>
+
+	<h2>Transaction History</h2>
+	<div id="transaction-list"></div>
+
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+	<script src="billing.js"></script>
+
   <script src="s_portal.js"></script>
 </body>
 </html>
