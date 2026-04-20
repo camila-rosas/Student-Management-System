@@ -30,7 +30,8 @@ public class AccountController {
 
     @GetMapping("/{studentId}")
     public Account getAccount(@PathVariable int studentId){
-        return accountRepository.findById(studentId).get();
+        return accountRepository.findByStudent_StudentId(studentId)
+        .orElseThrow(() -> new RuntimeException("Account not found"));
     }
 
     @GetMapping("/my")
