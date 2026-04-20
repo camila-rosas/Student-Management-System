@@ -13,11 +13,10 @@ NOTE: Data will be dynamic, just waiting on backend...
   <link rel="stylesheet" href="s_portal_style.css">
 </head>
 <body>
-  <!-- Fixed sidebar -->
   <aside class="portal-sidebar">
     <div class="sidebar-top">
       <div class="brand">
-           <div class="brand-icon">
+        <div class="brand-icon">
           <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/UTA_logomark.png" alt="School Logo">
         </div>
         <div class="brand-copy">
@@ -36,9 +35,9 @@ NOTE: Data will be dynamic, just waiting on backend...
 
     <div class="sidebar-bottom">
       <div class="user-card">
-        <div class="avatar">AJ</div>
+        <div class="avatar">ST</div>
         <div class="user-text">
-          <div class="user-name">Alex Johnson</div>
+          <div class="user-name">Student</div>
           <div class="user-role">Student</div>
         </div>
       </div>
@@ -51,10 +50,9 @@ NOTE: Data will be dynamic, just waiting on backend...
     <header class="topbar">
       <div class="term">Fall 2026</div>
 
-      <!-- Notifications -->
       <div class="bell-wrap" data-notices='[
-        "Current balance is $0.00.",
-        "No new billing transactions have posted yet."
+        "Billing information loads from your student account.",
+        "Transaction history will appear here when available."
       ]'>
         <button class="bell-btn" type="button" aria-label="Notifications">
           🔔
@@ -68,8 +66,6 @@ NOTE: Data will be dynamic, just waiting on backend...
         </div>
       </div>
     </header>
-
-    <!-- Hardcoded for now. Will wait to be dynamically updated-->
 
     <main class="page-content">
       <h1 class="page-title">Billing Account</h1>
@@ -112,27 +108,15 @@ NOTE: Data will be dynamic, just waiting on backend...
 
         <div class="empty-wrap">
           <div class="empty-icon">💲</div>
-          <div class="empty-copy">No transactions yet.</div>
+          <div class="empty-title">Loading Billing</div>
+          <div class="empty-copy">Please wait while billing details load.</div>
         </div>
       </section>
     </main>
   </div>
 
-	<div>
-  		<h2>Account Summary</h2>
-  		<p>Balance: <span id="balance"></span></p>
-  		<p>Total Charges: <span id="charges"></span></p>
- 		<p>Total Payments: <span id="payments"></span></p>
-	</div>
-
-	<hr>
-
-	<h2>Transaction History</h2>
-	<div id="transaction-list"></div>
-
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src="billing.js"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="s_portal.js"></script>
+  <script src="billing.js"></script>
 </body>
 </html>
