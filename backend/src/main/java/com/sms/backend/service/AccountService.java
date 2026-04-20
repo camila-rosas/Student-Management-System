@@ -41,4 +41,13 @@ public class AccountService {
 
         return res;
     }
+
+    public Account makePayment(int accountId, double amount){
+    Account acc = accountRepository.findById(accountId).orElseThrow();
+
+    acc.setCurrentBalance(acc.getCurrentBalance() - amount);
+    acc.setTotalPayments(acc.getTotalPayments() + amount);
+
+    return accountRepository.save(acc);
+    }
 }
