@@ -176,13 +176,13 @@ Note: MOSTLY INCOMEPLETE
 
 			//Updated  
             if (data.role === "STUDENT") {
-				window.location.href = "StudentPortal/s_home.html";
+				window.location.href = "StudentPortal/studentHomepage.html";
 			} else if (data.role === "REGISTRAR") {
-				window.location.href = "RegistrarPortal/r_home.html";
+				window.location.href = "RegistrarPortal/registrarHomepage.html";
 			} else if (data.role === "ACCOUNTS") {
-				window.location.href = "AccountPortal/a_home.html";
+				window.location.href = "AccountPortal/adminHomepage.html";
 			} else if (data.role === "ADMIN") {
-				window.location.href = "AdminPortal/a_home.html";
+				window.location.href = "AdminPortal/accountHomepage.html";
             } else {
               errorMessage.textContent = "Login succeeded, but the role was not recognized.";
             }
