@@ -134,7 +134,7 @@ Note: MOSTLY INCOMEPLETE
 
       <form id="loginForm">
         <label for="username">Email</label>
-        <input type="text" id="username" placeholder="Enter UTA Email" required>
+        <input type="text" id="username" placeholder="Enter email" required>
 
         <label for="password">Password</label>
         <input type="password" id="password" placeholder="Enter password" required>
@@ -149,56 +149,52 @@ Note: MOSTLY INCOMEPLETE
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        // An example login for each user: student, registrar, accountant/finance, & admin
-      const users = [
-        {
-          email: "student@uta.edu",
-          password: "student123",
-          role: "student",
-          name: "Alex Johnson",
-          redirect: "studentHomepage.html"
-        },
-        {
-          email: "registrar@uta.edu",
-          password: "registrar123",
-          role: "registrar",
-          name: "Registrar Office",
-          redirect: "registerHomepage.html"
-        },
-        {
-          email: "accountant@uta.edu",
-          password: "accountant123",
-          role: "accountant",
-          name: "Finance Office",
-          redirect: "accountHomepage.html"
-        },
-        {
-          email: "admin@uta.edu",
-          password: "admin123",
-          role: "admin",
-          name: "System Admin",
-          redirect: "adminHomepage.html"
-        }
-      ];
-
-      document.getElementById("loginForm").addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const email = document.getElementById("username").value.trim().toLowerCase();
-        const password = document.getElementById("password").value.trim();
+      document.addEventListener("DOMContentLoaded", function () {
+        const loginForm = document.getElementById("loginForm");
         const errorMessage = document.getElementById("errorMessage");
 
-        const matchedUser = users.find(function(user) {
-          return user.email === email && user.password === password;
-        });
+        loginForm.addEventListener("submit", async function (event) {
+          event.preventDefault();
 
-        if (matchedUser) {
-          localStorage.setItem("loggedInUser", JSON.stringify(matchedUser));
-          window.location.href = matchedUser.redirect;
-        } else {
-          errorMessage.textContent = "Invalid email or password.";
-        }
+          const username = document.getElementById("username").value.trim();
+          const password = document.getElementById("password").value.trim();
+
+          errorMessage.textContent = "";
+
+          try {
+            const response = await axios.post("http://localhost:8080/api/auth/login", {
+              username: username,
+              password: password
+            });
+
+            const data = response.data;
+
+            localStorage.setItem("token", data.token);
+            localStorage.setItem("role", data.role); 
+
+            if (data.role === "STUDENT") {
+              window.location.href = "studentHomepage.html";
+            } else if (data.role === "REGISTRAR") {
+              window.location.href = "registrarHomepage.html";
+            } else if (data.role === "ACCOUNTS") {
+              window.location.href = "accountsHomepage.html";
+            } else if (data.role === "ADMIN") {
+              window.location.href = "adminHomepage.html";
+            } else {
+              errorMessage.textContent = "Login succeeded, but the role was not recognized.";
+            }
+          } catch (error) {
+            if (error.response && typeof error.response.data === "string") {
+              errorMessage.textContent = error.response.data;
+            } else if (error.response && error.response.data && error.response.data.message) {
+              errorMessage.textContent = error.response.data.message;
+            } else {
+              errorMessage.textContent = "Unable to log in. Check the backend and your credentials.";
+            }
+          }
+        });
       });
     </script>
   </body>
