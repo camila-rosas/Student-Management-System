@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/reports")
+@RequestMapping("/api/reports")
 public class ReportController {
     @Autowired
     RegistrationRepository registrationRepository;
