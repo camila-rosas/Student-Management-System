@@ -1,60 +1,118 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const token = localStorage.getItem("token");
+document.addEventListener('DOMContentLoaded', async () => {
+  const sms = window.SMSStudent;
+  const panel = document.querySelector('.panel');
+  const summaryStrip = document.querySelector('.summary-strip');
 
-  axios.get("http://localhost:8080/api/registration/my", {
-    headers: {
-      Authorization: `Bearer ${token}`
+  try {
+    await sms.bootShared();
+    await loadCourses();
+  } catch (error) {
+    console.error(error);
+    renderError(error);
+  }
+
+  async function loadCourses() {
+    const registrations = await sms.apiRequest('/api/registration/my');
+    const enrolled = registrations.filter((registration) => registration.status === 'ENROLLED');
+
+    updateSummary(enrolled);
+    renderCourses(enrolled);
+  }
+
+  function updateSummary(registrations) {
+    if (!summaryStrip) return;
+
+    const totalHours = registrations.reduce((sum, registration) => {
+      return sum + Number(registration.course?.courseHours || 0);
+    }, 0);
+
+    const summaryBlocks = summaryStrip.querySelectorAll('.summary-block');
+
+    if (summaryBlocks[0]) {
+      const strong = summaryBlocks[0].querySelector('strong');
+      if (strong) strong.textContent = `${registrations.length} course${registrations.length === 1 ? '' : 's'}`;
     }
-  })
-  .then(res => {
-    const registrations = res.data;
-    const container = document.getElementById("my-courses-list");
 
-    container.innerHTML = "";
+    if (summaryBlocks[1]) {
+      const strong = summaryBlocks[1].querySelector('strong');
+      if (strong) strong.textContent = `${totalHours} / ${sms.MAX_STUDENT_HOURS}`;
+    }
+  }
 
-    if (registrations.length === 0) {
-      container.innerHTML = "<p>No enrolled courses.</p>";
+  function renderCourses(registrations) {
+    if (!panel) return;
+
+    panel.innerHTML = '';
+
+    if (!registrations.length) {
+      sms.showInlineMessage(
+        panel,
+        'No Courses Enrolled',
+        'You have no registered courses this semester.',
+        's_course_catalog.html',
+        'Browse Course Catalog',
+        '📖'
+      );
       return;
     }
 
-    registrations.forEach(reg => {
-      const course = reg.course;
+    panel.innerHTML = `
+      <div class="section-title">Enrolled Courses</div>
+      <div class="section-subtitle">Manage your registered courses for the current term</div>
+    `;
 
-      // Only show enrolled courses
-      if (reg.status !== "ENROLLED") return;
+    const list = document.createElement('div');
+    list.style.display = 'grid';
+    list.style.gap = '12px';
+    list.style.marginTop = '16px';
 
-      const div = document.createElement("div");
-      div.classList.add("course-card");
+    registrations.forEach((registration) => {
+      const course = registration.course;
+      const card = document.createElement('article');
+      card.className = 'course-card';
 
-      div.innerHTML = `
-        <h3>${course.courseName}</h3>
-        <p>Code: ${course.courseCode}</p>
-        <p>Instructor: ${course.instructor}</p>
-        <p>Credits: ${course.courseHours}</p>
-        <button onclick="dropCourse(${reg.registrationId})">Drop</button>
+      card.innerHTML = `
+        <div class="course-top">
+          <div>
+            <div class="course-code">${sms.escapeHtml(course.courseCode)} <span class="hours-pill">${course.courseHours} hrs</span></div>
+            <div class="course-name">${sms.escapeHtml(course.courseName)}</div>
+          </div>
+          <div class="course-actions">
+            <button class="catalog-action drop" type="button" data-drop-id="${registration.registrationId}">Drop</button>
+          </div>
+        </div>
+        <div class="course-desc">${sms.escapeHtml(course.description || 'Registered course for the current term.')}</div>
+        <div class="meta-stack">
+          <div class="meta-row"><span>👤 ${sms.escapeHtml(course.instructor || 'TBA')}</span><span>📍 ${sms.escapeHtml(course.roomNum || 'TBA')}</span></div>
+          <div class="meta-row"><span>🕒 ${sms.escapeHtml(course.schedule || 'TBA')}</span><span></span></div>
+        </div>
       `;
 
-      container.appendChild(div);
+      list.appendChild(card);
     });
-  })
-  .catch(err => console.error(err));
+
+    panel.appendChild(list);
+
+    panel.querySelectorAll('[data-drop-id]').forEach((button) => {
+      button.addEventListener('click', async () => {
+        try {
+          await sms.apiRequest(`/api/registration/drop/${button.dataset.dropId}`, {
+            method: 'delete'
+          });
+
+          window.alert('Course dropped successfully.');
+          await loadCourses();
+        } catch (error) {
+          console.error(error);
+          window.alert(sms.extractErrorMessage(error, 'Unable to drop this course.'));
+        }
+      });
+    });
+  }
+
+  function renderError(error) {
+    if (!panel) return;
+    const message = sms.extractErrorMessage(error, 'Unable to load your enrolled courses right now.');
+    sms.showInlineMessage(panel, 'My Courses Unavailable', message, 'my_courses.html', 'Try Again');
+  }
 });
-
-
-// DROP FUNCTION
-function dropCourse(registrationId){
-  const token = localStorage.getItem("token");
-
-  axios.delete(`http://localhost:8080/api/registration/drop/${registrationId}`, {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  })
-  .then(() => {
-    alert("Course dropped!");
-    location.reload();
-  })
-  .catch(err => {
-    alert(err.response?.data || "Error dropping course");
-  });
-}
