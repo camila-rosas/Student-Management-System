@@ -38,9 +38,11 @@ window.SMSStudent = (() => {
 
   function redirectToLogin() {
     localStorage.removeItem('token');
-    localStorage.removeItem('loggedInUser');
+    //Updated
+    localStorage.clear();
     localStorage.removeItem('role');
-    window.location.href = 'index.html';
+    //Updated
+    window.location.href = '../index.html';
   }
 
   function bindSignOut() {
