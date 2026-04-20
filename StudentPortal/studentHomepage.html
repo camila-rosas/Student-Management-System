@@ -12,9 +12,7 @@ NOTE: Data will be dynamic, just waiting on backend...
   <title>Student Portal Dashboard</title>
   <link rel="stylesheet" href="s_portal_style.css">
 </head>
-
 <body>
-  <!-- Fixed sidebar -->
   <aside class="portal-sidebar">
     <div class="sidebar-top">
       <div class="brand">
@@ -30,17 +28,17 @@ NOTE: Data will be dynamic, just waiting on backend...
       <nav class="sidebar-nav">
         <a class="sidebar-link active" href="studentHomepage.html">◫ Dashboard</a>
         <a class="sidebar-link" href="s_course_catalog.html">📖 Course Catalog</a>
-        <a class="sidebar-link" href="my_courses.html">🎓 My Courses</a> <!-- NOTE: using emojis instead of images bc I dont wanna do that rn. will likely change with actual images eventually.-->
+        <a class="sidebar-link" href="my_courses.html">🎓 My Courses</a>
         <a class="sidebar-link" href="s_billing.html">💲 Billing</a>
       </nav>
     </div>
 
     <div class="sidebar-bottom">
       <div class="user-card">
-        <div class="avatar">AJ</div> <!-- Will change to be the initials of the user. Example: dxv-->
+        <div class="avatar">ST</div>
         <div class="user-text">
-          <div class="user-name">Alex Johnson</div> <!-- Temporary name-->
-          <div class="user-role">Student</div> <!-- Will refer back to the role found in MySQL-->
+          <div class="user-name">Student</div>
+          <div class="user-role">Student</div>
         </div>
       </div>
 
@@ -52,14 +50,13 @@ NOTE: Data will be dynamic, just waiting on backend...
     <header class="topbar">
       <div class="term">Fall 2026</div>
 
-      <!-- Notifications -->
       <div class="bell-wrap" data-notices='[
         "Welcome back to your Fall 2026 dashboard.",
-        "Registration opens on August 12, 2026."
+        "Use the catalog page to enroll or drop courses."
       ]'>
         <button class="bell-btn" type="button" aria-label="Notifications">
           🔔
-          <span class="badge">3</span>
+          <span class="badge">2</span>
         </button>
 
         <div class="notice-panel">
@@ -71,7 +68,7 @@ NOTE: Data will be dynamic, just waiting on backend...
     </header>
 
     <main class="page-content">
-      <h1 class="page-title">Welcome back, Alex</h1>
+      <h1 class="page-title">Welcome back, Student</h1>
       <p class="page-subtitle">Fall 2026</p>
 
       <div class="info-bar">
@@ -80,10 +77,6 @@ NOTE: Data will be dynamic, just waiting on backend...
         <span>⏰ Add/Drop Deadline: <strong>Oct 16, 2026; 4:00 PM CST</strong></span>
       </div>
 
-      <!-- 
-          Summary cards 
-          NOTE: These will be dynamically updated to match with data found in database
-      -->
       <section class="card-grid">
         <div class="stat-card">
           <div>
@@ -115,7 +108,7 @@ NOTE: Data will be dynamic, just waiting on backend...
         <div class="stat-card">
           <div>
             <div class="card-label">Available Courses</div>
-            <div class="card-value">7</div>
+            <div class="card-value">0</div>
             <div class="card-note">With open seats</div>
           </div>
           <div class="icon-box">📋</div>
@@ -134,16 +127,15 @@ NOTE: Data will be dynamic, just waiting on backend...
 
         <div class="empty-wrap">
           <div class="empty-icon">📖</div>
-          <div class="empty-title">No Courses Enrolled</div>
-          <div class="empty-copy">You have no registered courses yet.</div>
-          <a class="primary-btn" href="s_course_catalog.html">Browse Course Catalog</a>
+          <div class="empty-title">Loading Dashboard</div>
+          <div class="empty-copy">Please wait while your student data loads.</div>
         </div>
       </section>
     </main>
   </div>
 
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="s_portal.js"></script>
-	<script src="dashboard.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
