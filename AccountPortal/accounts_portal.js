@@ -2,11 +2,31 @@
   accounts_portal.js
 */
 
-function getLoggedInUser() {
+//Updated
+const API = "http://localhost:8080";
+
+//Updated
+function getToken() {
+  return localStorage.getItem("token");
+}
+
+//Updated
+async function getLoggedInUser() {
+  const token = getToken();
+
+  if (!token) return null;
+
   try {
-    const raw = localStorage.getItem('loggedInUser');
-    return raw ? JSON.parse(raw) : null;
-  } catch (error) {
+    const res = await fetch(`${API}/api/users/me`, {
+      headers: {
+        "Authorization": "Bearer " + token
+      }
+    });
+
+    if (!res.ok) return null;
+
+    return await res.json();
+  } catch (e) {
     return null;
   }
 }
@@ -70,8 +90,11 @@ function bindSignOut() {
   document.querySelectorAll('.sign-out').forEach(function (link) {
     link.addEventListener('click', function (event) {
       event.preventDefault();
-      localStorage.removeItem('loggedInUser');
-      window.location.href = 'index.html';
+      //updated
+      localStorage.clear();
+      
+      //updated
+      window.location.href = '../index.html';
     });
   });
 }
@@ -238,15 +261,50 @@ function setupAccountSelection() {
   }
 }
 
-function initFinancePortal() {
-  const user = guardFinanceAccess();
-  if (!user) return;
+//Updated
+async function initFinancePortal() {
+  const user = await getLoggedInUser();
+
+  if (!user) {
+    window.location.href = '../index.html';
+    return;
+  }
+
+  const role = String(user.role || '').toLowerCase();
+
+  if (!['accounts', 'admin'].includes(role)) {
+    //updated
+    window.location.href = '../index.html';
+    return;
+  }
 
   hydrateFinanceUser(user);
   bindSignOut();
   createNoticeSystem();
   setupAccountSearch();
   setupAccountSelection();
+
+  loadAccounts(); // NEW
+}
+
+//Updated
+async function loadAccounts() {
+  const res = await fetch(`${API}/reports/dashboard`, {
+    headers: {
+      "Authorization": "Bearer " + getToken()
+    }
+  });
+
+  const data = await res.json();
+
+  console.log("Dashboard data:", data);
+
+  // Example (adjust to your HTML IDs)
+  const elStudents = document.getElementById("totalStudents");
+  const elCourses = document.getElementById("totalCourses");
+
+  if (elStudents) elStudents.innerText = data.students;
+  if (elCourses) elCourses.innerText = data.courses;
 }
 
 document.addEventListener('DOMContentLoaded', initFinancePortal);
