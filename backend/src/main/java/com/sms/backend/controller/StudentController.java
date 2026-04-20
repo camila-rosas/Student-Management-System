@@ -23,7 +23,11 @@ public class StudentController {
     private final CourseService courseService;
     private final RegistrationService registrationService;
 
-    public StudentController(StudentService studentService, UserService userService, AccountRepository accountRepository, CourseService courseService, RegistrationService registrationService) {
+    public StudentController(StudentService studentService,
+                             UserService userService,
+                             AccountRepository accountRepository,
+                             CourseService courseService,
+                             RegistrationService registrationService) {
         this.studentService = studentService;
         this.userService = userService;
         this.accountRepository = accountRepository;
@@ -33,29 +37,29 @@ public class StudentController {
 
     // get logged in student's profile
     @GetMapping("/me")
-    public Student getMyProfile(Authentication auth){
+    public Student getMyProfile(Authentication auth) {
         User user = userService.getUserByUsername(auth.getName());
         return studentService.getByUserId(user.getUserId());
     }
 
     @GetMapping("/dashboard")
-    public Map<String, Object> dashboard(Authentication auth){
-
+    public Map<String, Object> dashboard(Authentication auth) {
         User user = userService.getUserByUsername(auth.getName());
         Student student = studentService.getByUserId(user.getUserId());
 
         List<Registration> regs = student.getRegistrations();
 
         int courses = (int) regs.stream()
-                .filter(r -> r.getStatus().equals("ENROLLED"))
+                .filter(r -> "ENROLLED".equals(r.getStatus()))
                 .count();
 
         int credits = regs.stream()
-                .filter(r -> r.getStatus().equals("ENROLLED"))
+                .filter(r -> "ENROLLED".equals(r.getStatus()))
                 .mapToInt(r -> r.getCourse().getCourseHours())
                 .sum();
 
-        Account acc = accountRepository.findById(student.getStudentId()).orElseThrow();
+        Account acc = accountRepository.findByStudent_StudentId(student.getStudentId())
+                .orElseThrow(() -> new RuntimeException("Account not found for student."));
 
         Map<String, Object> res = new HashMap<>();
         res.put("courses", courses);
@@ -67,13 +71,13 @@ public class StudentController {
 
     // browse courses
     @GetMapping("/courses")
-    public List<Course> browseCourses(){
+    public List<Course> browseCourses() {
         return courseService.getAllCourses();
     }
 
     // enroll course
     @PostMapping("/enroll")
-    public Registration enroll(Authentication auth, @RequestParam int courseId){
+    public Registration enroll(Authentication auth, @RequestParam int courseId) {
         User user = userService.getUserByUsername(auth.getName());
         Student student = studentService.getByUserId(user.getUserId());
 
@@ -82,17 +86,17 @@ public class StudentController {
 
     // drop course
     @DeleteMapping("/drop/{id}")
-    public Registration drop(@PathVariable int id){
+    public Registration drop(@PathVariable int id) {
         return registrationService.dropCourse(id);
     }
 
     // view billing
     @GetMapping("/billing")
-    public Account billing(Authentication auth){
+    public Account billing(Authentication auth) {
         User user = userService.getUserByUsername(auth.getName());
         Student student = studentService.getByUserId(user.getUserId());
 
-        return accountRepository.findById(student.getStudentId()).orElseThrow();
+        return accountRepository.findByStudent_StudentId(student.getStudentId())
+                .orElseThrow(() -> new RuntimeException("Account not found for student."));
     }
-
 }
