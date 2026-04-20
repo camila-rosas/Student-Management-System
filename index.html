@@ -174,14 +174,15 @@ Note: MOSTLY INCOMEPLETE
             localStorage.setItem("token", data.token);
             localStorage.setItem("role", data.role); 
 
+			//Updated  
             if (data.role === "STUDENT") {
-              window.location.href = "studentHomepage.html";
-            } else if (data.role === "REGISTRAR") {
-              window.location.href = "registrarHomepage.html";
-            } else if (data.role === "ACCOUNTS") {
-              window.location.href = "accountsHomepage.html";
-            } else if (data.role === "ADMIN") {
-              window.location.href = "adminHomepage.html";
+				window.location.href = "StudentPortal/s_home.html";
+			} else if (data.role === "REGISTRAR") {
+				window.location.href = "RegistrarPortal/r_home.html";
+			} else if (data.role === "ACCOUNTS") {
+				window.location.href = "AccountPortal/a_home.html";
+			} else if (data.role === "ADMIN") {
+				window.location.href = "AdminPortal/a_home.html";
             } else {
               errorMessage.textContent = "Login succeeded, but the role was not recognized.";
             }
