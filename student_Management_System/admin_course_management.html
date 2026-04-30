@@ -1,0 +1,99 @@
+<!-- 
+	Team #7 Group Project
+	Names: David Vargas, Camila Rosas, Maria Barco, Zinia Noorani
+	
+	============================================================================
+	| THIS FILE IS MEANT TO BE A DEMO AND NOT THE FINAL PRODUCT. BUGS MAY OCCUR. |
+	============================================================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Course Management</title>
+  <link rel="stylesheet" href="admin_portal_style.css">
+</head>
+<body data-page="management">
+  <aside class="portal-sidebar">
+    <div class="sidebar-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <img src="https://upload.wikimedia.org/wikipedia/en/6/6f/UT_Arlington_Main_Logomark_Wordmark_2022.svg" alt="UTA Logo">
+        </div>
+        <div class="brand-copy">
+          <div class="brand-title">Student Portal</div>
+          <div class="brand-subtitle">Management System</div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a class="sidebar-link" href="adminHomepage.html"><span class="sidebar-icon">◫</span> Dashboard</a>
+        <a class="sidebar-link" href="admin_course_catalog.html"><span class="sidebar-icon">📖</span> Course Catalog</a>
+        <a class="sidebar-link active" href="admin_course_management.html"><span class="sidebar-icon">◫</span> Course Management</a>
+        <a class="sidebar-link" href="admin_student_accounts.html"><span class="sidebar-icon">◎</span> Student Accounts</a>
+        <a class="sidebar-link" href="admin_financial_reports.html"><span class="sidebar-icon">📄</span> Financial Reports</a>
+        <a class="sidebar-link" href="admin_enrollment_reports.html"><span class="sidebar-icon">◫</span> Enrollment Reports</a>
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="user-card">
+        <div class="avatar">MG</div>
+        <div class="user-text">
+          <div class="user-name">Maria Garcia</div>
+          <div class="user-role">Administrator</div>
+        </div>
+      </div>
+
+      <a class="sign-out" href="index.html">↪ Sign Out</a>
+    </div>
+  </aside>
+
+  <div class="page-shell">
+    <header class="topbar">
+      <div class="term">Spring 2026</div>
+
+      <div class="bell-wrap" data-notices='["Admins can add, update, and delete courses from this page.", "Any course changes update student, registrar, finance, and admin views."]'>
+        <button class="bell-btn" type="button" aria-label="Notifications">
+          🔔
+          <span class="badge">2</span>
+        </button>
+
+        <div class="notice-panel">
+          <div class="notice-head">Notifications</div>
+          <div class="notice-list"></div>
+          <button class="notice-clear" type="button">Clear All</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="page-content">
+      <div class="management-topbar">
+        <div>
+          <h1 class="page-title">Course Management</h1>
+          <p class="page-subtitle">Create, update, and delete course offerings for Spring 2026</p>
+        </div>
+        <button class="add-course-btn admin-add-course-btn" type="button">＋ Add Course</button>
+      </div>
+
+      <div class="search-row">
+        <label class="search-shell" for="adminCourseManagementSearch">
+          <span class="search-icon">⌕</span>
+          <input id="adminCourseManagementSearch" type="text" placeholder="Search courses by code, name, or instructor..." autocomplete="off">
+        </label>
+        <div style="display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:12px;color:var(--muted);">Total: <strong id="adminCourseManagementCount" style="margin-left:6px;color:var(--school-text);">0</strong></div>
+      </div>
+
+      <section class="panel">
+        <div class="management-panel-title">Active Course Offerings</div>
+        <div class="management-stack"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="sms_api.js"></script>
+  <script src="admin_portal.js"></script>
+</body>
+</html>
